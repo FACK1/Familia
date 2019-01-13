@@ -1,7 +1,7 @@
 # Familia
 An app to track family's required groceries
 
-### User's Journey
+### User Stories
 - As a user I want to create an account to be able to login.
 - As a user I want to access my existing account by logging in.
 - As a user I need to create my new family to have a list.
@@ -13,23 +13,23 @@ An app to track family's required groceries
 - public.
 - src
     - server
-         - server.js  
-    - app.js
+         - `server.js`  
+    - `app.js`
     - routes
-         - index.js
+         - `index.js`
            
     - database
-         - database_build
+         - `database_build`
            
     - queries
     - views
          - layouts
-                     - main.hbs
+          -`main.hbs`
          - partials
-         - home.hbs
+          -`home.hbs`
             
 ### Variable naming
-We're gonna be using camelCase, across all of our app.
+We're gonna be using camelCase across our whole app.
 
 ### Linting rules
 We're gonna be using ES-Lint.
