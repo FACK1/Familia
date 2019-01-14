@@ -42,7 +42,7 @@ An app to track family's required groceries
 We're gonna be using camelCase across our whole app.
 
 ### Linting rules
-We're gonna be using ES-Lint.
+We're gonna be using Airbnb style guide and standard.
 
 ### How we're gonna be handling Async JS
 Using promises. 
