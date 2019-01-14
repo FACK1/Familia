@@ -22,6 +22,7 @@ test('Test insert into families collection', (t) => {
     const actual = err ? 'Fail to add' : 'family has been added to DB';
     const expected = 'family has been added to DB';
     t.equal(actual, expected, 'Family added to DB!');
+    require('mongoose').disconnect();
+    t.end();
   });
-  t.end();
 });
