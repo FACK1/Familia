@@ -2,14 +2,9 @@ const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
 const path = require('path');
+const router = require("./index.js")
 
-app.get("/", (req, res)=>{
-  res.send("hello express!");
-})
-
-app.get("/home", (req, res)=>{
-  res.render("home");
-})
+app.use(router)
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
