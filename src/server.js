@@ -1,6 +1,8 @@
-const app = require("./app.js");
+const app = require('./app.js');
+require("env2")("config.env");
 
-app.set("PORT", 6002)
-app.listen(app.get("PORT"), ()=>{
-  console.log(`The Server Is Up And Running On http://localhost:6002`);
-})
+app.set("PORT", process.env.PORT);
+app.listen(app.get('PORT'), () => {
+  // eslint-disable-next-line no-console
+  console.log('The Server Is Up And Running On http://localhost:6002');
+});
