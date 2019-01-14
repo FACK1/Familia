@@ -7,7 +7,4 @@ app.get("/", (req, res)=>{
 })
 
 
-app.set("PORT", 6002)
-app.listen(app.get("PORT"), ()=>{
-  console.log(`The Server Is Up And Running`);
-})
+module.exports = app
