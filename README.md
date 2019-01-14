@@ -10,23 +10,28 @@ An app to track family's required groceries
 - As a user I want to be able to add a new item to my list.
 
 ### File structure 
-- public.
-- src
-    - server
-         - `server.js`  
-    - `app.js`
-    - routes
-         - `index.js`
-           
-    - database
-         - `database_build`
-           
-    - queries
-    - views
-         - layouts
-          -`main.hbs`
-         - partials
-          -`home.hbs`
+
+ public 
+      |__ css
+           |__ style.css
+
+- src 
+      |__ database
+                |_db_build.js
+                |_db_connection.js
+                |_db_bulid.sql
+      |__queries
+      
+      |__ views
+              |__ layout
+                     |__main.hbs
+              |__ home.hbs
+      |__ app.js
+      |__ server.js
+      |__ test
+           |__ db_test.js
+           |__ test.js
+- .gitignore
             
 ### Variable naming
 We're gonna be using camelCase across our whole app.
