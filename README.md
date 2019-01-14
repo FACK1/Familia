@@ -17,11 +17,13 @@ An app to track family's required groceries
 
 - src 
       |__ database
-                |_db_build.js
-                |_db_connection.js
-                |_db_bulid.sql
-      |__queries
-      
+                |__ db_build.js
+                |__db_connection.js
+                |__db_bulid.sql
+      |__ queries
+      |__ controllers
+                |__ homeController.js
+                |__ 
       |__ views
               |__ layout
                      |__main.hbs
