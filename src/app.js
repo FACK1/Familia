@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
 const path = require('path');
-const router = require("./index.js")
+const router = require("./router.js")
 
 app.use(router)
 
