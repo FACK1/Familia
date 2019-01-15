@@ -1,8 +1,4 @@
 const mongoose = require('mongoose');
-// eslint-disable-next-line no-unused-vars
-const Family = require('./Family.model.js');
-// eslint-disable-next-line no-unused-vars
-const User = require('./User.model.js');
 
 const { Schema } = mongoose;
 
