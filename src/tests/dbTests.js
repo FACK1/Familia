@@ -1,4 +1,5 @@
 require('../dbConfig/mongodb.config');
+const mongoose = require('mongoose');
 // eslint-disable-next-line  import/no-extraneous-dependencies
 const test = require('tape');
 const Family = require('../models/Family.model.js');
@@ -22,7 +23,7 @@ test('Test insert into families collection', (t) => {
     const actual = err ? 'Fail to add' : 'family has been added to DB';
     const expected = 'family has been added to DB';
     t.equal(actual, expected, 'Family added to DB!');
-    require('mongoose').disconnect();
+    mongoose.disconnect();
     t.end();
   });
 });
