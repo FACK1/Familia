@@ -25,11 +25,22 @@ const register = (req, res) => {
         }
       });
     }))
-    .then(() => {
+      .then((id) => {
+          return new Promise((resolve, reject) => {
+              const SECRET = process.env.SECRET;
+              jwt.sign(id, SECRET, (signErr, token) => {
+                  if(signErr) reject(signErr);
+                  else resolve(token);
+              });
+          });
+      })
+    .then((token) => {
+        res.cookie('id', token, {maxAge: 360000});
         res.redirect('/');
     })
     .catch((err) => {
-      res.send(err);
+        console.log(err);
+        res.send(err);
     });
 };
 
