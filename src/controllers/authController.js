@@ -8,6 +8,7 @@ const index = (req, res) => {
 const checkUser = user => new Promise((resolve, reject) => {
   User.findOne({ username: user.username }).then((foundUser) => {
     if (foundUser) {
+      // eslint-disable-next-line prefer-promise-reject-errors
       reject('already registered');
     } else {
       resolve(user);
@@ -31,15 +32,18 @@ const hashPassword = user => new Promise((resolve, reject) => {
       if (hashErr) {
         reject(hashErr);
       } else {
-        user.password = hashedPassword;
-        resolve(user);
+        const u = new User({
+          name: user.name,
+          username: user.username,
+          password: hashedPassword,
+        });
+        resolve(u);
       }
     });
   });
 });
 
 const register = (req, res) => {
-  console.log('HERE!!!', req.body);
   const { name, username, password } = req.body;
   const u = new User({
     name,
