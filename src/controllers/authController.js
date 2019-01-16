@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-//const cookie = require('cookie');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User.model.js');
 require('env2')('config.env');
@@ -17,30 +16,27 @@ const register = (req, res) => {
       username,
       password: hashedPassword,
     })).then(user => new Promise((resolve, reject) => {
-      user.save((err, user) => {
+      user.save((err, savedUser) => {
         if (err) {
           reject(err);
         } else {
-          resolve(user.id);
+          resolve(savedUser.id);
         }
       });
     }))
-      .then((id) => {
-          return new Promise((resolve, reject) => {
-              const SECRET = process.env.SECRET;
-              jwt.sign(id, SECRET, (signErr, token) => {
-                  if(signErr) reject(signErr);
-                  else resolve(token);
-              });
-          });
-      })
+    .then(id => new Promise((resolve, reject) => {
+      const { SECRET } = process.env;
+      jwt.sign(id, SECRET, (signErr, token) => {
+        if (signErr) reject(signErr);
+        else resolve(token);
+      });
+    }))
     .then((token) => {
-        res.cookie('id', token, {maxAge: 360000});
-        res.redirect('/');
+      res.cookie('id', token, { maxAge: 360000 });
+      res.redirect('/');
     })
     .catch((err) => {
-        console.log(err);
-        res.send(err);
+      res.send(err);
     });
 };
 
