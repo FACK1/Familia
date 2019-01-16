@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/FACK1/Familia#readme",
   "dependencies": {
+    "bcrypt": "^3.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "env2": "^2.2.2",
