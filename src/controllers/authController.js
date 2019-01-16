@@ -1,6 +1,10 @@
 const bcrypt = require('bcryptjs');
 const User = require('../models/User.model.js');
 
+const index = (req, res) => {
+  res.render('auth');
+};
+
 const checkUser = user => new Promise((resolve, reject) => {
   User.findOne({ username: user.username }).then((foundUser) => {
     if (foundUser) {
@@ -49,7 +53,7 @@ const register = (req, res) => {
         if (err) {
           res.send('There was a problem with registartion, please try again');
         } else {
-          res.send('success!');
+          res.redirect('/');
         }
       });
     })
@@ -57,4 +61,4 @@ const register = (req, res) => {
       res.send(err);
     });
 };
-module.exports = { register };
+module.exports = { register, index };
