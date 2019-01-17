@@ -1,9 +1,10 @@
 const express = require('express');
+const middlewares = require('./middlewares');
 
 const router = express.Router();
 const authController = require('./controllers/authController');
 
-router.get('/', (req, res) => {
+router.get('/', [middlewares.checkAuth], (req, res) => {
   res.render('home');
 });
 
