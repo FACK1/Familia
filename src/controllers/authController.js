@@ -38,7 +38,7 @@ const register = (req, res) => {
     .then(saveUser)
     .then(generateCookieToken)
     .then((token) => {
-      res.cookie('id', token, { maxAge: 360000 });
+      res.cookie('id', token, { maxAge: 360000000 });
       res.redirect('/');
     })
     .catch((err) => {
