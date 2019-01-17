@@ -4,8 +4,12 @@ const middlewares = require('./middlewares');
 const router = express.Router();
 const authController = require('./controllers/authController');
 
-router.get('/', [middlewares.checkAuth], (req, res) => {
+router.get('/', [middlewares.checkAuth, middlewares.chechFamily], (req, res) => {
   res.render('home');
+});
+
+router.get('/joinFamily', (req, res) => {
+    res.send('Join Family Page!');
 });
 
 router.post('/register', authController.register);
