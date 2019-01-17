@@ -9,7 +9,7 @@ router.get('/', [middlewares.checkAuth, middlewares.chechFamily], (req, res) => 
 });
 
 router.get('/joinFamily', (req, res) => {
-    res.send('Join Family Page!');
+  res.send('Join Family Page!');
 });
 
 router.post('/register', authController.register);
