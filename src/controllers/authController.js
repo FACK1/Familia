@@ -8,6 +8,25 @@ const index = (req, res) => {
 };
 
 
+const saveUser = user => new Promise((resolve, reject) => {
+  user.save((err, savedUser) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(savedUser.id);
+    }
+  });
+});
+
+const generateCookieToken = id => new Promise((resolve, reject) => {
+  const { SECRET } = process.env;
+  jwt.sign(id, SECRET, (signErr, token) => {
+    if (signErr) reject(signErr);
+    else resolve(token);
+  });
+});
+
+
 const register = (req, res) => {
   const { name, username, password } = req.body;
   bcrypt.hash(password, 10)
@@ -15,22 +34,9 @@ const register = (req, res) => {
       name,
       username,
       password: hashedPassword,
-    })).then(user => new Promise((resolve, reject) => {
-      user.save((err, savedUser) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(savedUser.id);
-        }
-      });
     }))
-    .then(id => new Promise((resolve, reject) => {
-      const { SECRET } = process.env;
-      jwt.sign(id, SECRET, (signErr, token) => {
-        if (signErr) reject(signErr);
-        else resolve(token);
-      });
-    }))
+    .then(saveUser)
+    .then(generateCookieToken)
     .then((token) => {
       res.cookie('id', token, { maxAge: 360000 });
       res.redirect('/');
