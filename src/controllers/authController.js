@@ -1,71 +1,93 @@
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const User = require('../models/User.model.js');
+require('env2')('config.env');
 
 const index = (req, res) => {
   res.render('auth');
 };
 
-const checkUser = user => new Promise((resolve, reject) => {
-  User.findOne({ username: user.username }).then((foundUser) => {
-    if (foundUser) {
-      // eslint-disable-next-line prefer-promise-reject-errors
-      reject('already registered');
+const saveUser = user => new Promise((resolve, reject) => {
+  user.save((err, savedUser) => {
+    if (err) {
+      reject(err);
     } else {
-      resolve(user);
+      resolve(savedUser.id);
     }
   });
 });
 
-const generateSalt = () => new Promise((resolve, reject) => {
-  bcrypt.genSalt(10, (saltErr, salt) => {
-    if (saltErr) {
-      reject(saltErr);
-    } else {
-      resolve(salt);
-    }
-  });
-});
-
-const hashPassword = user => new Promise((resolve, reject) => {
-  generateSalt().then((salt) => {
-    bcrypt.hash(user.password, salt, (hashErr, hashedPassword) => {
-      if (hashErr) {
-        reject(hashErr);
-      } else {
-        const u = new User({
-          name: user.name,
-          username: user.username,
-          password: hashedPassword,
-        });
-        resolve(u);
-      }
-    });
+const generateCookieToken = id => new Promise((resolve, reject) => {
+  const { SECRET } = process.env;
+  jwt.sign(id, SECRET, (signErr, token) => {
+    if (signErr) reject(signErr);
+    else resolve(token);
   });
 });
 
 const register = (req, res) => {
   const { name, username, password } = req.body;
-  const u = new User({
-    name,
-    username,
-    password,
-  });
-  checkUser(u)
-    .then(hashPassword)
-    .then((acceptedUser) => {
-      acceptedUser.save((err) => {
-        if (err) {
-          res.send('There was a problem with registartion, please try again');
-        } else {
-          res.redirect('/');
-        }
-      });
+  bcrypt
+    .hash(password, 10)
+    .then(
+      hashedPassword => new User({
+        name,
+        username,
+        password: hashedPassword,
+      }),
+    )
+    .then(saveUser)
+    .then(generateCookieToken)
+    .then((token) => {
+      res.cookie('id', token, { maxAge: 360000000 });
+      res.redirect('/');
     })
     .catch((err) => {
+      console.log(err);
       res.send(err);
     });
 };
 
-/*= ================login starts here================ */
+/*= ======login starts here======= */
+const checkUser = user => new Promise((resolve, reject) => {
+  User.findOne({ username: user.username }).then((foundUser) => {
+    if (!foundUser) {
+      // eslint-disable-next-line prefer-promise-reject-errors
+      reject("user doesn't exist");
+    } else {
+      resolve(foundUser);
+    }
+  });
+});
 
-module.exports = { register, index };
+const login = (req, res) => {
+  const { body } = req;
+  const { username, password } = body;
+  const registeredUser = {
+    username,
+    password,
+  };
+
+  checkUser(registeredUser)
+    .then((checkedUser) => {
+      bcrypt.compare(registeredUser.password, checkedUser.password);
+    })
+    .then(() => {
+      generateCookieToken(checkedUser.id);
+      console.log('generate cookie');
+    })
+    .then((token) => {
+      console.log('token');
+      res.cookie('id', token, { maxAge: 360000000 });
+      console.log('cookies here');
+      res.redirect('/');
+      console.log('redirect');
+    })
+    .catch((err) => {
+      console.log('HERE 23');
+      console.log(err);
+      res.send(err);
+    });
+};
+
+module.exports = { register, index, login };
