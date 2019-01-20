@@ -14,5 +14,5 @@ router.get('/joinFamily', (req, res) => {
 
 router.post('/register', authController.register);
 router.get('/auth', authController.index);
-router.post('login', authController.login)
+router.post('/login', authController.login);
 module.exports = router;
