@@ -1,6 +1,6 @@
-const form = document.getElementById('registerForm');
+const registerForm = document.getElementById('registerForm');
 
-form.addEventListener('submit', (event) => {
+registerForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const registerUsername = document.getElementById('registerUsername').value;
   const registerName = document.getElementById('registerName').value;
@@ -30,6 +30,6 @@ form.addEventListener('submit', (event) => {
       }
     })
     .catch((err) => {
-      alert('there was an error, try again');
+      alert('there was an error, try again 98');
     });
 });

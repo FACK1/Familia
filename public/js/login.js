@@ -1,7 +1,8 @@
-const form = document.getElementById('loginForm');
+const loginForm = document.getElementById('loginForm');
 
-form.addEventListener('submit', (event) => {
+loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  console.log('Hey');
 
   const loginUsername = document.getElementById('loginUsername').value;
   const loginPassword = document.getElementById('loginPassword').value;
@@ -29,6 +30,6 @@ form.addEventListener('submit', (event) => {
       }
     })
     .catch((err) => {
-      alert('there was an error, try again');
+      alert('there was an error, try again 91');
     });
 });
