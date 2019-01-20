@@ -1,7 +1,7 @@
 const checkAuth = require('./checkAuth');
-const chechFamily = require('./checkFamily');
+const checkFamily = require('./checkFamily');
 
 module.exports = {
   checkAuth,
-  chechFamily,
+  checkFamily,
 };
