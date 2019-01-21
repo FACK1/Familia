@@ -30,6 +30,6 @@ registerForm.addEventListener('submit', (event) => {
       }
     })
     .catch((err) => {
-      alert('there was an error, try again 98');
+      alert('there was an error, try again');
     });
 });
