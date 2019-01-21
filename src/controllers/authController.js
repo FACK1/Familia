@@ -43,12 +43,12 @@ const register = (req, res) => {
       res.redirect('/');
     })
     .catch((err) => {
-      console.log(err);
       res.send(err);
     });
 };
 
 /*= ======login starts here======= */
+
 const checkUser = user => new Promise((resolve, reject) => {
   User.findOne({ username: user.username }).then((foundUser) => {
     if (!foundUser) {
@@ -71,21 +71,14 @@ const login = (req, res) => {
   checkUser(registeredUser)
     .then((checkedUser) => {
       bcrypt.compare(registeredUser.password, checkedUser.password);
+      return checkedUser;
     })
-    .then(() => {
-      generateCookieToken(checkedUser.id);
-      console.log('generate cookie');
-    })
+    .then(checkedUser => generateCookieToken(checkedUser.id))
     .then((token) => {
-      console.log('token');
       res.cookie('id', token, { maxAge: 360000000 });
-      console.log('cookies here');
       res.redirect('/');
-      console.log('redirect');
     })
     .catch((err) => {
-      console.log('HERE 23');
-      console.log(err);
       res.send(err);
     });
 };
