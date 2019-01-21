@@ -52,8 +52,7 @@ const register = (req, res) => {
 const checkUser = user => new Promise((resolve, reject) => {
   User.findOne({ username: user.username }).then((foundUser) => {
     if (!foundUser) {
-      // eslint-disable-next-line prefer-promise-reject-errors
-      reject("user doesn't exist");
+      reject(new Error("User doesn't Exist!"));
     } else {
       resolve(foundUser);
     }
