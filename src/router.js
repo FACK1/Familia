@@ -17,4 +17,6 @@ router.post('/createFamily', [middlewares.checkAuth], familyController.createFam
 router.post('/register', authController.register);
 router.get('/auth', authController.index);
 
+router.get('/myTestRoute', familyController.getFamilyItems);
+
 module.exports = router;
