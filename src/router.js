@@ -5,10 +5,9 @@ const router = express.Router();
 
 const authController = require('./controllers/authController');
 const familyController = require('./controllers/familyController');
+const itemsController = require('./controllers/itemsController');
 
-router.get('/', [middlewares.checkAuth, middlewares.checkFamily], (req, res) => {
-  res.render('home');
-});
+router.get('/', [middlewares.checkAuth, middlewares.checkFamily], itemsController.index);
 
 
 router.get('/joinFamily', familyController.index);
@@ -17,6 +16,5 @@ router.post('/createFamily', [middlewares.checkAuth], familyController.createFam
 router.post('/register', authController.register);
 router.get('/auth', authController.index);
 
-router.get('/myTestRoute', familyController.getFamilyItems);
 
 module.exports = router;
