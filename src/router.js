@@ -10,8 +10,8 @@ router.get('/', [middlewares.checkAuth, middlewares.checkFamily], (req, res) => 
   res.render('home');
 });
 
-
 router.get('/joinFamily', familyController.index);
+router.post('/join', [middlewares.checkAuth], familyController.join);
 router.post('/createFamily', [middlewares.checkAuth], familyController.createFamily);
 
 router.post('/register', authController.register);
