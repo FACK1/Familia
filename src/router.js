@@ -16,5 +16,5 @@ router.post('/createFamily', [middlewares.checkAuth], familyController.createFam
 
 router.post('/register', authController.register);
 router.get('/auth', authController.index);
-
+router.post('/login', authController.login);
 module.exports = router;
