@@ -10,7 +10,8 @@ const index = (req, res) => {
 const saveUser = user => new Promise((resolve, reject) => {
   user.save((err, savedUser) => {
     if (err) {
-      reject(err);
+      err.msg = 'User Already Exists';
+      reject(err.msg);
     } else {
       resolve(savedUser.id);
     }
