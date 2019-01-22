@@ -4,14 +4,14 @@
 
 Familia is a shopping list, sharing and tracking app that aims to connect your household's needs with all of your family members. With Familia you'll never have to worry about forgetting what your fridge lacks or your mom needs.
 
-### User Stories: what can you do on our app?
+### User Stories: what can I do in this app?
 
-- As a user you want to create an account to be able to login.
-- As a user you want to access your existing account by logging in.
-- As a user you need to create your new family to have a list.
-- As a user you want to be able to join an existing family.
-- As a user you need to view your family-list.
-- As a user you want to be able to add a new item to your list.
+- As a user I want to create an account to be able to login.
+- As a user I want to access your existing account by logging in.
+- As a user I need to create your new family to have a list.
+- As a user I want to be able to join an existing family.
+- As a user I need to view your family-list.
+- As a user I want to be able to add a new item to your list.
 
 ### How to run our app on your local machine?
 
@@ -49,7 +49,7 @@ Using SSH: `git clone git@github.com:FACK1/Familia.git`
 
 11- Copy paste the following in your config.env file:
 
-- `DATABASE_URL = <your database url here>` ; and replace `<dubuser>`, `<dbpasswords>`, `<dbname>` with your own, accordingly.
+- `DATABASE_URL = <your database url here>` ; and replace `<dbuser>`, `<dbpassword>`, `<dbname>` with your own, accordingly.
   *_Note: you can find your database url when you select your created one on mLab._
   
 - Copy paste the following: `SECRET = <any word you want>`.
