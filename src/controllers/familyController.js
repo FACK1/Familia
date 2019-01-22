@@ -35,7 +35,7 @@ const createFamily = (req, res) => {
       }),
     )
     .then(() => {
-      res.redirect('/');
+      res.redirect('/settings');
     })
     .catch(() => {
       res.redirect('/');
