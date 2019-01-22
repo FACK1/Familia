@@ -7,7 +7,6 @@
 .loginForm{
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 .register{
@@ -19,5 +18,10 @@
 .registerForm{
   display: flex;
   flex-direction: column;
-  width: 50%;
+}
+
+::placeholder{
+  color: grey;
+  font-size: 14px;
+  font-family: inherit;
 }
