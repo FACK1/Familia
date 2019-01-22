@@ -15,7 +15,7 @@ router.post('/join', middlewares.checkAuth, familyController.join);
 router.post('/createFamily', middlewares.checkAuth, familyController.createFamily);
 
 router.post('/register', authController.register);
-router.get('/auth', authController.index);
+router.get('/auth', [middlewares.checkGuest], authController.index);
 
 router.post('/login', authController.login);
 
