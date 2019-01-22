@@ -38,6 +38,7 @@ Using SSH: `git clone git@github.com:FACK1/Familia.git`
 6- Press on your database, and under the tab `users`, press `add database user`.
 
 7- Select a username, a password, and **make sure to save them somewhere, we're gonna need them for step 11**. 
+
 *_Note: don't tick the `read only` option._
 
 8- Open the repo in your text editor, and your terminal too.
@@ -131,7 +132,7 @@ We use Airbnb style guide and standard.
 
 ### Async JS
 
-All Async operations were handled using promises.
+All Async operations are handled using promises.
 
 ### Database
 
@@ -151,11 +152,14 @@ This app uses MongoDB as its database.
 
 **FrontEnd**
 
-Styling: Tachyons.
+- Styling: Tachyons.
 
 **BackEnd:**
 
-Environment: Node.js.
-Routing: Express.js.
-Server-side rendering: Express-handlebars.
-Database: MongoDB.
+- Environment: Node.js.
+
+- Routing: Express.js.
+
+- Server-side rendering: Express-handlebars.
+
+- Database: MongoDB.
