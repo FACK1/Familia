@@ -15,11 +15,14 @@ Familia is a shopping list, sharing and tracking app that aims to connect your h
 
 ### How to run our app on your local machine?
 
-**Note: this App uses MongoDB as its database.\*
-**Follow these instruction in order:\*\*
+**Note: this App uses MongoDB as its database.*
+
+**Follow these instruction in order:**
+
 1- Open your terminal.
 
 2- Clone this repository.
+
 Using HTTP: `git clone https://github.com/FACK1/Familia.git`
 Using SSH: `git clone git@github.com:FACK1/Familia.git`
 
@@ -41,11 +44,12 @@ Using SSH: `git clone git@github.com:FACK1/Familia.git`
 
 11- Copy paste the following in your config.env file:
 
-- `DATABASE_URL = <your database url here> , and replace <dubuser>, <dbpasswords>, <dbname> with your own, accordingly. \*_Note: you can find your database url when you select your created one on mLab._
+- `DATABASE_URL = <your database url here>` , and replace <dubuser>, <dbpasswords>, <dbname> with your own, accordingly. *_Note: you can find your database url when you select your created one on mLab._
 - Copy paste the following: `SECRET = <any word you want>`.
 - Copy paste the following: `PORT = <any port you want>`.
 
-12- Run the following in your terminal `npm run dev`. \*_Note: You should get a msg in your terminal that the server is running on `localhost:<PORT>` and mongoose connected successfully._
+12- Run the following in your terminal `npm run dev`. 
+*_Note: You should get a msg in your terminal that the server is running on `localhost:<PORT>` and mongoose connected successfully._
 
 13- Open the app in the browser by typing in the URL tab: `localhost:<PORT>`, and enter.
 
