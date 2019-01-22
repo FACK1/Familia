@@ -27,7 +27,6 @@ const getFamilyByUser = user => new Promise((resolve, reject) => {
   }
 });
 
-
 const settings = (req, res) => {
   getUserById(req.userId)
     .then(getUserById)
