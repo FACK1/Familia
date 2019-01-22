@@ -20,7 +20,7 @@
   flex-direction: column;
 }
 
-::placeholder{
+input::placeholder{
   color: grey;
   font-size: 14px;
   font-family: inherit;
