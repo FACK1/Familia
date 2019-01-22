@@ -4,7 +4,7 @@ const User = require('../models/User.model.js');
 require('env2')('config.env');
 
 const index = (req, res) => {
-  res.render('auth');
+  res.render('auth', { req });
 };
 
 const saveUser = user => new Promise((resolve, reject) => {
