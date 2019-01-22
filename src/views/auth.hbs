@@ -1,17 +1,21 @@
-<h1>Hey auth page!</h1>
-<h2 class="registerTitle">Register now!</h2>
-<form id="registerForm">
-    <input id="registerUsername" name="username" type="text" placeholder="Enter a username..."/>
-    <input id="registerName" name="name" type="text" placeholder="Enter a name..."/>
-    <input id="registerPassword" name="password" placeholder="Enter a password..." type="password"/>
-    <button id="registerSubmit" name="registerButton" type="submit" name="submit">Register</button>
-  </form>
 
-
-  <form id='loginForm'>
-    <input type="text" placeholder="Username" name= 'loginUsername' required id="loginUsername">
-    <input type="password" placeholder="Password" name='loginPassword' required id="loginPassword">
-    <button class="login" type="submit" name="loginButton" value="login">Login</button>
+  <div class="login">
+  <form class='loginForm'>
+    <h2 class=" center f4"> Log in </h2>
+    <input class="pa1 mt3 br2" type="text" placeholder="username" name= 'loginUsername' required id="loginUsername">
+    <input class="pa1 mt3 br2" type="password" placeholder="password" name='loginPassword' required id="loginPassword"></br>
+    <button class="pa1 white bg-blue br4 " type="submit" name="loginButton" value="login">Login</button>
   </form>
+  </div>
+
+  <div class="register">
+  <form class="registerForm">
+    <h2 class="center f4"> Create Account </h2>
+      <input class="pa1 mt3 br2" id="registerName" name="name" type="text" placeholder="name"/>
+      <input class="pa1 mt3 br2" id="registerUsername" name="username" type="text" placeholder="username"/>
+      <input class="pa1 mt3 br2" id="registerPassword" name="password" placeholder="password" type="password"/></br>
+      <button class="pa1 white bg-blue br4" id="registerSubmit" name="registerButton" type="submit" name="submit">Register</button>
+    </form>
+  </div>
   <script src="js/login.js"></script>
   <script src="js/register.js"></script>
