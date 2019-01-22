@@ -2,8 +2,10 @@ const joinForm = document.getElementById('joinForm');
 
 joinForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  console.log('came here in join.js');
+
   const joinCode = document.getElementById('joinCode').value;
-  const joinButton = document.getElementById('joinButton').value;
+
   const famData = {
     key: joinCode,
   };
