@@ -82,4 +82,9 @@ const login = (req, res) => {
     });
 };
 
-module.exports = { register, index, login };
+const logout = (req, res) => {
+    res.clearCookie('id');
+    res.redirect('/');
+};
+
+module.exports = { register, index, login, logout };
