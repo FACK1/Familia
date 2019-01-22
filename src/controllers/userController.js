@@ -32,7 +32,7 @@ const settings = (req, res) => {
     .then(getUserById)
     .then(getFamilyByUser)
     .then((family) => {
-      res.send(family.key);
+      res.render('settings', { familyKey: family.key });
     })
     .catch((err) => {
       res.send(err.message);
