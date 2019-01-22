@@ -57,7 +57,7 @@ const join = (req, res) => {
   findFamily(key).then((foundFam) => {
     User.findById(req.userId, (findErr, foundUser) => {
       foundUser.family_id = foundFam.id;
-      foundUser.save((err, updatedUser) => {
+      foundUser.save((err) => {
         if (err) {
           res.send(err);
         } else {
