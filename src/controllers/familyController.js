@@ -2,7 +2,6 @@ const randomize = require('randomatic');
 const Family = require('../models/Family.model');
 const User = require('../models/User.model');
 
-
 const checkSavedFamily = isSavedFamily => new Promise((resolve, reject) => {
   if (!isSavedFamily) {
     reject();
@@ -45,7 +44,6 @@ const createFamily = (req, res) => {
 const index = (req, res) => {
   res.render('joinFamily');
 };
-
 
 module.exports = {
   createFamily,
