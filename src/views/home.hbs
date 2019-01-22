@@ -1,1 +1,12 @@
-<h1>Hello World!</h1>
+<ul>
+{{#each items}}
+    <li>
+        {{this.title}}
+    </li>
+    {{/each}}
+</ul>
+
+<form method="POST" action="/addItem">
+    <input type="text" placeholder="Enter Item Name..." name="itemTitle">
+    <input type="submit" value="add">
+</form>
