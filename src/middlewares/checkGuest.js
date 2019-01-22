@@ -7,8 +7,8 @@ const checkGuest = (req, res, next) => {
   if (!hashedId) {
     next();
   } else {
-    // eslint-disable-next-line no-unused-vars
-    jwt.verify(hashedId, process.env.SECRET, (err, decoded) => {
+    jwt.verify(hashedId, process.env.SECRET, (err) => {
+      console.log(err);
       if (err) {
         next();
       } else {
