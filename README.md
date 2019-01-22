@@ -150,7 +150,7 @@ This app uses MongoDB as its database.
 
 ### Our Stack
 
-**FrontEnd**
+**FrontEnd:**
 
 - Styling: Tachyons.
 
