@@ -1,5 +1,5 @@
 const express = require('express');
-const middlewares = require('./middlewares');
+const middlewares = require('./middlewares/index.js');
 
 const router = express.Router();
 
@@ -11,10 +11,11 @@ router.get('/', [middlewares.checkAuth, middlewares.checkFamily], (req, res) => 
 });
 
 router.get('/joinFamily', familyController.index);
-router.post('/join', [middlewares.checkAuth], familyController.join);
-router.post('/createFamily', [middlewares.checkAuth], familyController.createFamily);
+router.post('/join', middlewares.checkAuth, familyController.join);
+router.post('/createFamily', middlewares.checkAuth, familyController.createFamily);
 
 router.post('/register', authController.register);
 router.get('/auth', authController.index);
 router.post('/login', authController.login);
+
 module.exports = router;
