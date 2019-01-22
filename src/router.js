@@ -18,7 +18,9 @@ router.post('/register', authController.register);
 router.get('/auth', [middlewares.checkGuest], authController.index);
 
 router.post('/login', authController.login);
-
+router.get('/logout', (req, res) => {
+    res.send('Logout page!');
+});
 router.post(
   '/addItem',
   [middlewares.checkAuth, middlewares.checkFamily],
