@@ -1,15 +1,20 @@
-<h2>Create your family!</h2>
 
-<form id="createFamilyForm" method="POST" action="/createFamily">
-    <input id="createFamilyName" name="familyName" placeholder="Enter Family Name...">
-    <input type="submit" id="createFamilyButton" name="submitButton" value="Create">
+<div class="flex  flex-column items-center">
+
+
+<h2>Join an existing family</h2>
+<form class="flex  flex-column items-center mt2" id="joinForm">
+    <input class="pa1 mt3 br2" id="joinCode" name="joinCode" placeholder="Enter Family's Code">
+    <button class="pa1 white bg-blue br4 mt3 w4" id="joinButton" name="joinButton" type="submit">Join!</button>
 </form>
 
-<h2>Or join an existing one!</h2>
 
-<form id="joinForm">
-    <input id="joinCode" name="joinCode" placeholder="Enter Family's Code...">
-    <button id="joinButton" name="joinButton" type="submit">Join!</button>
+<h2>---Or---</h2><br>
+
+<form class="flex  flex-column items-center mt2" id="createFamilyForm" method="POST" action="/createFamily">
+  <h2>Create your family</h2>
+  <input class="pa1 mt3 br2" id="createFamilyName" name="familyName" placeholder="Enter Family Name"></br>
+  <input class="pa1 white bg-blue br4 mt3 w4" type="submit" id="createFamilyButton" name="submitButton" value="Create">
 </form>
-
+</div>
 <script src="/js/join.js"></script>
