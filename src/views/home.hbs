@@ -1,12 +1,15 @@
-<ul>
-{{#each items}}
-    <li>
-        {{this.title}}
-    </li>
-    {{/each}}
-</ul>
-
-<form method="POST" action="/addItem">
-    <input type="text" placeholder="Enter Item Name..." name="itemTitle">
-    <input type="submit" value="add">
-</form>
+<section class="homeBody">
+  <h2>Your Grocery List</h2>
+      <form method="POST" action="/addItem">
+          <input type="text" placeholder="Enter Item Name..." name="itemTitle" class="add-item">
+          <input type="submit" value="add" class="add-button">
+      </form>
+      <ul>
+      {{#each items}}
+          <li class="list-item">
+              {{this.title}}
+          </li>
+          {{/each}}
+      </ul>
+</section>
+{{>settingsButton}}
