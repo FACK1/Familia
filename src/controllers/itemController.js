@@ -32,7 +32,7 @@ const index = (req, res) => {
   getUserById(req.userId)
     .then(getItemsByFamilyId)
     .then((items) => {
-      res.render('home', { items });
+      res.render('home', { items, req });
     })
     .catch((err) => {
       res.send('ERROR:', err);

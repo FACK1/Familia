@@ -69,7 +69,7 @@ const join = (req, res) => {
 };
 
 const index = (req, res) => {
-  res.render('joinFamily');
+  res.render('joinFamily', { req });
 };
 
 module.exports = {

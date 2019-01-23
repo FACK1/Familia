@@ -4,7 +4,7 @@ const User = require('../models/User.model.js');
 require('env2')('config.env');
 
 const index = (req, res) => {
-  res.render('auth');
+  res.render('auth', { req });
 };
 
 const saveUser = user => new Promise((resolve, reject) => {
@@ -82,4 +82,11 @@ const login = (req, res) => {
     });
 };
 
-module.exports = { register, index, login };
+const logout = (req, res) => {
+  res.clearCookie('id');
+  res.redirect('/');
+};
+
+module.exports = {
+  register, index, login, logout,
+};
