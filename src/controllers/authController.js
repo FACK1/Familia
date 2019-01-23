@@ -83,8 +83,10 @@ const login = (req, res) => {
 };
 
 const logout = (req, res) => {
-    res.clearCookie('id');
-    res.redirect('/');
+  res.clearCookie('id');
+  res.redirect('/');
 };
 
-module.exports = { register, index, login, logout };
+module.exports = {
+  register, index, login, logout,
+};

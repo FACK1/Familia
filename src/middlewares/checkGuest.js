@@ -8,7 +8,6 @@ const checkGuest = (req, res, next) => {
     next();
   } else {
     jwt.verify(hashedId, process.env.SECRET, (err) => {
-      console.log(err);
       if (err) {
         next();
       } else {
